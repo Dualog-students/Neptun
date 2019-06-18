@@ -18,7 +18,10 @@
   </li>
 </ul>
 
-
+<button (click)="todoService.sortDateAddedNewest()">Sort by newest</button>
+<button (click)="todoService.sortDateAddedOldest()">Sort by oldest</button>
+<button (click)="todoService.sortPriorityLow()">Sort by low priority</button>
+<button (click)="todoService.sortPriorityHigh()">Sort by high priority</button>
 <button (click)="todoService.testAddTodo()">Add Todo</button>
 <div *ngFor="let a of todoService.todos">
   <h3>{{ a.title }}</h3>
@@ -26,7 +29,8 @@
   <p>Date added: {{a.dateAdded | date:'medium'}}</p>
   <p>Deadline: {{a.deadline | date:'medium'}}</p>
   <p>isDone: {{a.isDone}}</p>
-  <p>Priority: {{a.priority}}</p>
+  <p>Priority: {{getPriority(a)}}</p>
+  <button (click)="todoService.deleteTodo(a)">Delete</button>
 </div>
 
 
