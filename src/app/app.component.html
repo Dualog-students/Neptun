@@ -18,21 +18,20 @@
   </li>
 </ul>
 
-<button (click)="todoService.sortDateAddedNewest()">Sort by newest</button>
-<button (click)="todoService.sortDateAddedOldest()">Sort by oldest</button>
-<button (click)="todoService.sortPriorityLow()">Sort by low priority</button>
-<button (click)="todoService.sortPriorityHigh()">Sort by high priority</button>
-<button (click)="todoService.testAddTodo()">Add Todo</button>
-<div *ngFor="let a of todoService.todos">
+<button (click)="sorting = 'dateAddedNewest'">Sort by newest</button>
+<button (click)="sorting = 'dateAddedOldest'">Sort by oldest</button>
+<button (click)="sorting = 'priorityLow'">Sort by low priority</button>
+<button (click)="sorting = 'priorityHigh'">Sort by high priority</button>
+<button (click)="testAddTodo()">Add Todo</button>
+<div *ngFor="let a of todoList | sortingPipes:sorting">
   <h3>{{ a.title }}</h3>
   <h4>{{ a.description }}</h4>
   <p>Date added: {{a.dateAdded | date:'medium'}}</p>
   <p>Deadline: {{a.deadline | date:'medium'}}</p>
   <p>isDone: {{a.isDone}}</p>
   <p>Priority: {{getPriority(a)}}</p>
-  <button (click)="todoService.deleteTodo(a)">Delete</button>
+  <button (click)="deleteTodo(a)">Delete</button>
 </div>
-
 
 <router-outlet></router-outlet>
 

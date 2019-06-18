@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { TodoModel, priorityType } from './models/todo-model'
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
-import todoSamples from '../assets/todo-samples.json';
+import { AppModule } from './app.module'
+import { todoSamples } from '../assets/todo-samples'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-
   todos: TodoModel[] = todoSamples;
 
-  constructor() { 
-
-  }
+  constructor(){ }
 
   addTodo(todo: TodoModel) {
     this.todos.push(todo);
@@ -20,9 +18,9 @@ export class TodoService {
 
   testAddTodo() {
     let todo = new TodoModel();
-    todo.title = "Get groceries";
+    todo.title = "Testing todos";
     todo.description = "Go to the store";
-    todo.dateAdded = 319480923.0;
+    todo.dateAdded = Date.now();
     todo.deadline = 0;
     todo.isDone = false;
     todo.priority = 0;
@@ -68,29 +66,5 @@ export class TodoService {
         }
       }
     });
-  }
-
-  sortDateAddedNewest() {
-    this.todos.sort((a, b) => a.dateAdded - b.dateAdded);
-  }
-
-  sortDateAddedOldest() {
-    this.todos.sort((a, b) => b.dateAdded - a.dateAdded);
-  }
-
-  sortDeadlineNewest() {
-    this.todos.sort((a, b) => a.deadline - b.deadline);
-  }
-
-  sortDeadlineOldest() {
-    this.todos.sort((a, b) => b.deadline - a.deadline);
-  }
-
-  sortPriorityLow() {
-    this.todos.sort((a, b) => a.priority - b.priority);
-  }
-
-  sortPriorityHigh() {
-    this.todos.sort((a, b) => b.priority - a.priority);
   }
 }
