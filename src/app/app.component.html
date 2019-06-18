@@ -18,4 +18,18 @@
   </li>
 </ul>
 
+
+<button (click)="todoService.testAddTodo()">Add Todo</button>
+<div *ngFor="let a of todoService.todos">
+  <h3>{{ a.title }}</h3>
+  <h4>{{ a.description }}</h4>
+  <p>Date added: {{a.dateAdded | date:'medium'}}</p>
+  <p>Deadline: {{a.deadline | date:'medium'}}</p>
+  <p>isDone: {{a.isDone}}</p>
+  <p>Priority: {{a.priority}}</p>
+</div>
+
+
 <router-outlet></router-outlet>
+
+

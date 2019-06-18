@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { TodoService } from './todo.service'
+import { TodoModel, priorityType } from './models/todo-model';
+import { DatePipe } from '@angular/common'
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Neptun';
+  todoService: TodoService = new TodoService();
 }
