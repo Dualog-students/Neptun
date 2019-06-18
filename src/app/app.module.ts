@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { SortingPipesPipe } from '../pipes/sorting-pipes.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SortingPipesPipe
   ],
   imports: [
     BrowserModule,
@@ -18,5 +18,4 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-}
+export class AppModule { }

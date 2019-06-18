@@ -1,4 +1,4 @@
-[
+export const todoSamples = [
     {
         "title": "Get groceries",
         "description": "Go to the store",
@@ -31,4 +31,4 @@
         "isDone": false,
         "priority": 2
     }
-]
+  ]
