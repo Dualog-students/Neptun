@@ -1,0 +1,20 @@
+@import './colors.scss';
+
+.button {
+    width: fit-content;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+    font-size:30px;
+    background-color: $primary-color; 
+    border-radius: 4px;
+    border-color: $dualog-nordic-light;
+    color:$very-light-blue;  
+  }
+  
+.button:hover {
+    color: $secondary-color; 
+    border-color: $dark-slate-blue;
+  }
+  
+  
