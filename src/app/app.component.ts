@@ -12,4 +12,9 @@ import { DatePipe } from '@angular/common'
 export class AppComponent {
   title = 'Neptun';
   todoService: TodoService = new TodoService();
+
+
+  getPriority(todo: TodoModel) {
+    return priorityType[todo.priority];
+  }
 }

@@ -10,7 +10,7 @@ export class TodoModel {
 }
 
 export enum priorityType {
-    low,
-    medium,
-    high,
+    Low,
+    Medium,
+    High,
 }
