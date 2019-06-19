@@ -3,6 +3,7 @@ import { TodoModel, priorityType } from './models/todo-model'
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { AppModule } from './app.module'
 import { todoSamples } from '../assets/todo-samples'
+import { TouchSequence } from 'selenium-webdriver';
 
 @Injectable({
   providedIn: 'root'
@@ -48,16 +49,14 @@ export class TodoService {
     this.getAllTodos();
     console.log(todo.id);
     
-    // this.todos.forEach(todo => {
-    //   if(this.todos.values ===  ) {
-
-    //   }
+    this.todos.forEach(x => {
+      if(x.id === todo.id ) {
+            
+      }
       
-    // });
+    });
     
-    //}
-    
-    JSON.stringify(sessionStorage.removeItem(this.key));
+    JSON.stringify(sessionStorage.removeItem(key));
     this.todos = this.todos.filter(x => x !== todo);
     
   }
