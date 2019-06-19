@@ -1,0 +1,48 @@
+@import '../../assets/colors';
+
+.todo-card {
+    width: 70%;
+    margin: 1rem auto;
+    box-shadow: 0 3px 7px -1px rgba(#000, .1);
+    margin-bottom: 1.6%;
+    background: $dualog_white;
+    line-height: 1.4;
+    font-family: sans-serif;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.card-title {
+    padding: 1rem;
+    background: $dualog_nordic_dark;
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.card-description {
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: $dualog_black;
+    padding-left: 1rem;
+    margin-top: 5px;
+    position: relative;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.button-complete {
+    background-color: green;
+    height: 50px;
+    color: $dualog_white;
+    font-size: 30px;
+    font-weight: bold;
+}
