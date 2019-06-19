@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="btn-group" dropdown>
+      <button class="button" style="width: 100%" id="button-sort" dropdownToggle type="button"
+              aria-controls="dropdown-sort">
+        Sort by ⯆ <span class="caret"></span>
+      </button>
+      <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu"
+          role="menu" aria-labelledby="button-sort">
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedNewest'"> Sort by newest</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedOldest'"> Sort by oldest</a></li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityHigh'">Sort high priority</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityLow'">Sort low priority</a></li>
+      </ul>
+    </div>
+    <div class="row">
+      <div *ngFor="let a of todoList | sortingPipes:sorting" class="col-4 pt-3">
+        <div class="card w-75">
+          <div class="card-body">
+            <h5 class="card-title">{{ a.title }}</h5>
+            <p class="card-text">{{ a.description }}</p>
+            <p>- Priority: <font color={{getColorPriority(a)}}>{{getPriority(a)}}</font>
+            </p>
+            <p>- Date added: {{a.dateAdded | date:'short'}}</p>
+            <p>- Deadline: {{a.deadline | date:'short'}}</p>
+            <p>- Completed: <font color={{getCompleteColor(a)}}> {{ getCompleteMessage(a) }} </font>
+            </p>
+            <button class="button" style="width:50%" (click)="deleteTodo(a)">Delete</button>
+            <button class="button" style="width:50%">Edit</button>
+            <button class="button complete-button" style="width:100%" (click)="toggleComplete(a)">Complete</button>
+            <div class="dotdot-button">...</div>
+          </div>
+        </div>
+      </div>
+    </div>
