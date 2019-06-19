@@ -5,6 +5,7 @@ export class TodoModel {
     deadline: number;
     isDone: boolean;
     priority?: priorityType;
+    id: number;
 }
 
 export enum priorityType {

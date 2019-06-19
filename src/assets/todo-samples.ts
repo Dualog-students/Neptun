@@ -5,7 +5,8 @@ export const todoSamples = [
         "dateAdded": 319480923.0,
         "deadline": 0,
         "isDone": false,
-        "priority": 0
+        "priority": 0,
+        "id": 1
     },
     {
         "title": "Make coffee",
@@ -13,7 +14,9 @@ export const todoSamples = [
         "dateAdded": 25434.0,
         "deadline": 0,
         "isDone": false,
-        "priority": 1
+        "priority": 1,
+        "id": 2
+
     },
     {
         "title": "Eat lunch",
@@ -21,7 +24,8 @@ export const todoSamples = [
         "dateAdded": 345.0,
         "deadline": 345435345,
         "isDone": true,
-        "priority": 0
+        "priority": 0,
+        "id": 3
     },
     {
         "title": "Finish todoApp",
@@ -29,6 +33,7 @@ export const todoSamples = [
         "dateAdded": 234234.0,
         "deadline": 34534543,
         "isDone": false,
-        "priority": 2
+        "priority": 2,
+        "id": 4
     }
   ]
