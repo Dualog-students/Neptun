@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TodoModel, priorityType } from '../models/todo-model';
-import { AppComponent } from '../app.component';
+import { HomeComponent } from '../components/pages/home/home.component';
 
 @Component({
   selector: 'app-todo-card',
@@ -9,21 +9,11 @@ import { AppComponent } from '../app.component';
 })
 export class TodoCardComponent implements OnInit {
   @Input() todo: TodoModel;
-  @Input() appComponent: AppComponent;
+  @Input() homeComponent: HomeComponent;
 
   constructor() { }
 
   ngOnInit() {
-  }
-  
-  toggleComplete() {
-    this.appComponent.todoService.toggleCompleted(this.todo);
-    this.appComponent.updateTodoList();
-  }
-
-  deleteTodo() {
-    this.appComponent.todoService.deleteTodo(this.todo);
-    this.appComponent.updateTodoList();
   }
 
   getColorPriority(todo: TodoModel) {

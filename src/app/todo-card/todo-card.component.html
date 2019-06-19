@@ -7,7 +7,7 @@
     <p>- Deadline: {{todo.deadline | date:'short'}}</p>
     <p>- Completed: <font color={{getCompleteColor(todo)}}> {{ getCompleteMessage(todo) }} </font></p>
   </div>
-  <button class="button" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
+  <button class="button" style="width: 50%" (click)="homeComponent.deleteTodo(todo)">Delete</button>
   <button class="button" style="width: 50%" >Edit</button>
-  <button class="button-complete" style="width:100%" (click)="toggleComplete(todo)">Complete</button>
+  <button class="button-complete" style="width:100%" (click)="homeComponent.toggleComplete(todo)">Complete</button>
 </div>

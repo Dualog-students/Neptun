@@ -16,7 +16,7 @@
     <div class="row">
       <div *ngFor="let a of todoList | sortingPipes:sorting" class="col-4 pt-3">
           <div *ngFor="let a of todoList | sortingPipes:sorting">
-              <app-todo-card [todo]="a" [appComponent]="this"></app-todo-card>
+              <app-todo-card [todo]="a" [homeComponent]="this"></app-todo-card>
             </div>
           </div>
           </div>
