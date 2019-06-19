@@ -1,0 +1,13 @@
+<div class="todo-card">
+  <h1 class="card-title">{{ todo.title }}</h1>
+  <p class="card-description">{{ todo.description }}</p>
+  <div class="card-info">
+    <p>- Priority: <font color={{getColorPriority(todo)}}>{{getPriority(todo)}}</font></p>
+    <p>- Date added: {{todo.dateAdded | date:'short'}}</p>
+    <p>- Deadline: {{todo.deadline | date:'short'}}</p>
+    <p>- Completed: <font color={{getCompleteColor(todo)}}> {{ getCompleteMessage(todo) }} </font></p>
+  </div>
+  <button class="button" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
+  <button class="button" style="width: 50%" >Edit</button>
+  <button class="button-complete" style="width:100%" (click)="toggleComplete(todo)">Complete</button>
+</div>
