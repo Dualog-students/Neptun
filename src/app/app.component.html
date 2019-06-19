@@ -1,59 +1,31 @@
-<div class="card">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  <div class="button">Edit</div>
-  <div class="button">Delete</div>
-  </div>
-</div>
+<button class="button" (click)="sorting = 'dateAddedNewest'">Sort by newest</button>
+<button class="button" (click)="sorting = 'dateAddedOldest'">Sort by oldest</button>
+<button class="button" (click)="sorting = 'priorityLow'">Sort by low priority</button>
+<button class="button" (click)="sorting = 'priorityHigh'">Sort by high priority</button>
 
-<button (click)="sorting = 'dateAddedNewest'">Sort by newest</button>
-<button (click)="sorting = 'dateAddedOldest'">Sort by oldest</button>
-<button (click)="sorting = 'priorityLow'">Sort by low priority</button>
-<button (click)="sorting = 'priorityHigh'">Sort by high priority</button>
-<button (click)="testAddTodo()">Add Todo</button>
-<div *ngFor="let a of todoList | sortingPipes:sorting">
-  <h3>{{ a.title }}</h3>
-  <h4>{{ a.description }}</h4>
-  <p>Date added: {{a.dateAdded | date:'medium'}}</p>
-  <p>Deadline: {{a.deadline | date:'medium'}}</p>
-  <p>isDone: {{a.isDone}}</p>
-  <p>Priority: {{getPriority(a)}}</p>
-  <button (click)="deleteTodo(a)">Delete</button>
-</div>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Go to store</h5>
-    <p class="card-text">Go to the store and by some shit so the kids won't starve.</p>
-    <h6>- Priority: <font color="yellow">medium</font></h6>
-    <h6>- Date added: 19.06.2019</h6>
-    <h6>- Due date: 21.06.2019</h6>
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-      <label class="custom-control-label" for="defaultUnchecked">Completed?</label>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let a of todoList | sortingPipes:sorting">
+      <div class="col-4 pt-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ a.title }}</h5>
+            <p class="card-text">{{ a.description }}</p>
+            <p>- Priority: <font color={{getColorPriority(a)}}>{{getPriority(a)}}</font></p>
+            <p>- Date added: {{a.dateAdded | date:'short'}}</p>
+            <p>- Deadline: {{a.deadline | date:'short'}}</p>
+            <p>- Completed: <font color={{getCompleteColor(a)}}> {{ getCompleteMessage(a) }} </font></p>
+            <button class="button" style="width:50%" (click)="deleteTodo(a)">Delete</button>
+            <button class="button" style="width:50%">Edit</button>
+            <button class="button complete-button" style="width:100%" (click)="toggleComplete(a)">Complete</button>
+            <div class="dotdot-button">...</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <button class="button" >Delete</button>
-    <button class="button">Edit</button>
   </div>
 </div>
 
-<h3></h3>
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Go to store</h5>
-    <p class="card-text">Go to the store and by some shit so the kids won't starve.</p>
-    <h6>- Priority: <font color="yellow">medium</font></h6>
-    <h6>- Date added: 19.06.2019</h6>
-    <h6>- Due date: 21.06.2019</h6>
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-      <label class="custom-control-label" for="defaultUnchecked">Completed?</label>
-    </div>
-    <button class="button" >Delete</button>
-    <button class="button">Edit</button>
-  </div>
-</div>
-
-<router-outlet></router-outlet>
+  <button class="fixed-bottom todo-button" (click)="testAddTodo()">
+    NEW TODO
+  </button>
