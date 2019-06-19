@@ -19,65 +19,30 @@ export class HomeComponent implements OnInit {
     this.todoList = todoService.getAllTodos();
   }
 
-  getPriority(todo: TodoModel) {
-    return priorityType[todo.priority];
-  }
-
-  deleteTodo(todo: TodoModel) {
-    this.todoService.deleteTodo(todo);
+  updateTodoList() {
     this.todoList = this.todoService.getAllTodos();
   }
 
   addTodo(todo: TodoModel) { 
     this.todoService.addTodo(todo);
-    this.todoList = this.todoService.getAllTodos();
+    this.updateTodoList();
     this.todoList = this.sortingPipe.transform(this.todoList, this.sorting);
   }
 
   testAddTodo() {
     this.todoService.testAddTodo();
-    this.todoList = this.todoService.getAllTodos();
+    this.updateTodoList();
     this.todoList = this.sortingPipe.transform(this.todoList, this.sorting);
+  }
+
+  editTodo(todo: TodoModel, variable: string, edit: any) {
+    this.todoService.editTodo(todo, variable, edit);
+    this.updateTodoList();
   }
 
   toggleComplete(todo: TodoModel) {
     this.todoService.toggleCompleted(todo);
     this.todoList = this.todoService.getAllTodos();
-  }
-
-  editTodo(todo: TodoModel, variable: string, edit: any) {
-    this.todoService.editTodo(todo, variable, edit);
-    this.todoList = this.todoService.getAllTodos();
-  }
-
-  getColorPriority(todo: TodoModel) {
-    if(todo.priority == 0){
-      return 'green';
-    }
-    else if(todo.priority == 1) {
-      return 'yellow';
-    }
-    else {
-      return 'red';
-    }
-  }
-
-  getCompleteColor(todo: TodoModel) {
-    if(todo.isDone == true) {
-      return 'green';
-    }
-    else {
-      return 'red';
-    }
-  }
-
-  getCompleteMessage(todo: TodoModel) {
-    if(todo.isDone == true) {
-      return 'yes';
-    }
-    else {
-      return 'no';
-    }
   }
 
   ngOnInit() {

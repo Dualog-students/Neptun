@@ -15,21 +15,13 @@
     </div>
     <div class="row">
       <div *ngFor="let a of todoList | sortingPipes:sorting" class="col-4 pt-3">
-        <div class="card w-75">
-          <div class="card-body">
-            <h5 class="card-title">{{ a.title }}</h5>
-            <p class="card-text">{{ a.description }}</p>
-            <p>- Priority: <font color={{getColorPriority(a)}}>{{getPriority(a)}}</font>
-            </p>
-            <p>- Date added: {{a.dateAdded | date:'short'}}</p>
-            <p>- Deadline: {{a.deadline | date:'short'}}</p>
-            <p>- Completed: <font color={{getCompleteColor(a)}}> {{ getCompleteMessage(a) }} </font>
-            </p>
-            <button class="button" style="width:50%" (click)="deleteTodo(a)">Delete</button>
-            <button class="button" style="width:50%">Edit</button>
-            <button class="button complete-button" style="width:100%" (click)="toggleComplete(a)">Complete</button>
-            <div class="dotdot-button">...</div>
+          <div *ngFor="let a of todoList | sortingPipes:sorting">
+              <app-todo-card [todo]="a" [appComponent]="this"></app-todo-card>
+            </div>
+          </div>
           </div>
         </div>
       </div>
     </div>
+
+
