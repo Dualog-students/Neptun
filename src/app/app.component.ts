@@ -49,4 +49,34 @@ export class AppComponent {
     this.todoService.editTodo(todo, variable, edit);
     this.todoList = this.todoService.getAllTodos();
   }
+
+  getColorPriority(todo: TodoModel) {
+    if(todo.priority == 0){
+      return 'green';
+    }
+    else if(todo.priority == 1) {
+      return 'yellow';
+    }
+    else {
+      return 'red';
+    }
+  }
+
+  getCompleteColor(todo: TodoModel) {
+    if(todo.isDone == true) {
+      return 'green';
+    }
+    else {
+      return 'red';
+    }
+  }
+
+  getCompleteMessage(todo: TodoModel) {
+    if(todo.isDone == true) {
+      return 'yes';
+    }
+    else {
+      return 'no';
+    }
+  }
 }
