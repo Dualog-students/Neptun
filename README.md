@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="logo.png" alt="Logo" width="300">
+    <img src="./src/assets/logo.png" alt="Logo" width="300">
   </a>
 
   <h1 align="center">Neptun</h1>
@@ -13,9 +13,6 @@
     <br />
   </p>
 </p>
-
-
->
 
 ## Usage
 ### Development
