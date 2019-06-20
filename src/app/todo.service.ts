@@ -18,20 +18,7 @@ export class TodoService {
     this.todos.push(todo);
     sessionStorage.setItem(this.key, JSON.stringify(this.todos));
   }
-
-  testAddTodo() {
-    const todo = new TodoModel();
-    const uuidv4 = require('uuid/v4');
-    todo.title = 'Testing todos';
-    todo.description = 'Go to the store';
-    todo.dateAdded = Date.now();
-    todo.deadline = 0;
-    todo.isDone = false;
-    todo.priority = 0;
-    todo.id = uuidv4();
-    this.addTodo(todo);
-  }
-
+  
   getAllTodos() {
     const list = JSON.parse(sessionStorage.getItem(this.key));
     if (list === null) {
