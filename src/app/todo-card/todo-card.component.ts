@@ -15,11 +15,7 @@ export class TodoCardComponent implements OnInit {
 
   ngOnInit() {
   }
-<<<<<<< HEAD
-
-=======
   
->>>>>>> Change method of keeping todo-list uupdated
   getColorPriority(todo: TodoModel) {
     if(todo.priority == 0){
       return 'green';
