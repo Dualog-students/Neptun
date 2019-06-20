@@ -13,8 +13,8 @@
       <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityLow'">Sort low priority</a></li>
     </ul>
   </div>
-  <div class="row">
-    <div *ngFor="let a of todoList | sortingPipes:sorting" class="col-4 pt-3">
+  <div class="todo-cards">
+    <div *ngFor="let a of todoList | sortingPipes:sorting">
       <app-todo-card [todo]="a" [homeComponent]="this"></app-todo-card>
     </div>
   </div>
