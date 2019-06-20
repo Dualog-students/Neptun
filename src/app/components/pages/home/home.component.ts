@@ -30,19 +30,10 @@ export class HomeComponent implements OnInit {
   }
 
   testAddTodo() {
+    console.log("test");
     this.todoService.testAddTodo();
     this.updateTodoList();
     this.todoList = this.sortingPipe.transform(this.todoList, this.sorting);
-  }
-
-  editTodo(todo: TodoModel, variable: string, edit: any) {
-    this.todoService.editTodo(todo, variable, edit);
-    this.updateTodoList();
-  }
-
-  toggleComplete(todo: TodoModel) {
-    this.todoService.toggleCompleted(todo);
-    this.todoList = this.todoService.getAllTodos();
   }
 
   ngOnInit() {
