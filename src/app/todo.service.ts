@@ -12,8 +12,6 @@ export class TodoService {
   todos: TodoModel[] = todoSamples;
   
   key = "TodoList";
-  // sessionStorage.setItem(this.key, 'value');
-
   constructor(){ }
 
   addTodo(todo: TodoModel) { 
@@ -47,18 +45,20 @@ export class TodoService {
 
   deleteTodo(todo: TodoModel) {
     this.getAllTodos();
-    console.log(todo.id);
-    
     this.todos.forEach(x => {
       if(x.id === todo.id ) {
-            
+        // Remove item from this.todoslist
+        this.todos.splice(x.id, 1);
+        // Rewrite the new list to session storage
+        sessionStorage.setItem(this.key, JSON.stringify(this.todos));
       }
-      
+      else{
+        // Error - but nothing really happens here, heh
+        console.log("item is not in the list");
+      }
     });
-    
-    JSON.stringify(sessionStorage.removeItem(key));
-    this.todos = this.todos.filter(x => x !== todo);
-    
+
+    this.todos = this.todos.filter(x => x.id !== todo.id);
   }
 
   toggleCompleted(todo: TodoModel) {
@@ -72,8 +72,6 @@ export class TodoService {
 
   editTodo(todo: TodoModel, variable: string, edit: any) {
     this.getAllTodos();
-
-    //this.todos = sessionStorage.setItem(this.key, 'new value');
     this.todos.forEach(x => {
       if(x === todo)
       {
@@ -94,6 +92,8 @@ export class TodoService {
           x.priority = edit;
         }
       }
+
+    sessionStorage.setItem(this.key, JSON.stringify(this.todos));
     });
   }
 }
