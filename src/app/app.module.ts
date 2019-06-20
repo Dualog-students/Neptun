@@ -16,7 +16,7 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
     SortingPipesPipe,
     AboutComponent,
     HomeComponent,
-    TodoCardComponent
+    TodoCardComponent,
     NavbarComponent,
   ],
   imports: [
