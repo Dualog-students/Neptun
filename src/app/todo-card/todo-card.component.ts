@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoModel, priorityType } from '../models/todo-model';
-import { HomeComponent } from '../components/pages/home/home.component';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-card',
@@ -9,18 +9,34 @@ import { HomeComponent } from '../components/pages/home/home.component';
 })
 export class TodoCardComponent implements OnInit {
   @Input() todo: TodoModel;
-  @Input() homeComponent: HomeComponent;
+  @Input() todoService: TodoService;
+  @Output() updateTodoList = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  toggleComplete(todo: TodoModel) {
+    this.todoService.toggleCompleted(todo);
+    this.updateTodoList.emit();
+  }
+
+  deleteTodo(todo: TodoModel) {
+    this.todoService.deleteTodo(todo);
+    this.updateTodoList.emit();
+  }
+
+  editTodo(todo: TodoModel, variable: string, edit: any) {
+    this.todoService.editTodo(todo, variable, edit);
+    this.updateTodoList.emit();
+  }
   
   getColorPriority(todo: TodoModel) {
-    if(todo.priority == 0){
+    if(todo.priority === 0){
       return 'green';
     }
-    else if(todo.priority == 1) {
+    else if(todo.priority === 1) {
       return 'yellowgreen';
     }
     else {
@@ -29,7 +45,7 @@ export class TodoCardComponent implements OnInit {
   }
 
   getCompleteColor(todo: TodoModel) {
-    if(todo.isDone == true) {
+    if(todo.isDone === true) {
       return 'green';
     }
     else {
@@ -42,7 +58,7 @@ export class TodoCardComponent implements OnInit {
   }
 
   getCompleteMessage(todo: TodoModel) {
-    if(todo.isDone == true) {
+    if(todo.isDone === true) {
       return 'yes';
     }
     else {

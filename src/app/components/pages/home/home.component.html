@@ -15,9 +15,9 @@
   </div>
   <div class="todo-cards">
     <div *ngFor="let a of todoList | sortingPipes:sorting">
-      <app-todo-card [todo]="a" [homeComponent]="this"></app-todo-card>
+      <app-todo-card [todo]="a" [todoService]="this.todoService" (updateTodoList)="updateTodoList()"></app-todo-card>
     </div>
   </div>
 </div>
 
-
+<button class="fixed-bottom todo-button" (click)="testAddTodo()">New Todo</button>
