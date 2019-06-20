@@ -9,10 +9,9 @@ import { TodoService } from '../todo.service';
 })
 export class TodoCardComponent implements OnInit {
   @Input() todo: TodoModel;
-  @Input() todoService: TodoService;
   @Output() updateTodoList = new EventEmitter();
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
@@ -31,38 +30,26 @@ export class TodoCardComponent implements OnInit {
     this.todoService.editTodo(todo, variable, edit);
     this.updateTodoList.emit();
   }
-  
+
   getColorPriority(todo: TodoModel) {
-    if(todo.priority === 0){
+    if (todo.priority === 0) {
       return 'green';
-    }
-    else if(todo.priority === 1) {
+    } else if (todo.priority === 1) {
       return 'yellowgreen';
-    }
-    else {
+    } else {
       return 'red';
     }
   }
 
   getCompleteColor(todo: TodoModel) {
-    if(todo.isDone === true) {
-      return 'green';
-    }
-    else {
-      return 'red';
-    }
+    return todo.isDone ? 'green' : 'red';
   }
-  
+
   getPriority(todo: TodoModel) {
     return priorityType[todo.priority];
   }
 
   getCompleteMessage(todo: TodoModel) {
-    if(todo.isDone === true) {
-      return 'yes';
-    }
-    else {
-      return 'no';
-    }
+    return todo.isDone ? 'yes' : 'no';
   }
 }
