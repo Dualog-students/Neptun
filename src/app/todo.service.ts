@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TodoModel, priorityType } from './models/todo-model'
+import { TodoModel } from './models/todo-model'
 import { todoSamples } from '../assets/todo-samples'
 
 @Injectable({
@@ -13,19 +13,22 @@ export class TodoService {
 
   addTodo(todo: TodoModel) {
     this.getAllTodos();
+    const uuidv4 = require('uuid/v4');
+    todo.id = uuidv4();
     this.todos.push(todo);
     sessionStorage.setItem(this.key, JSON.stringify(this.todos));
   }
 
   testAddTodo() {
     const todo = new TodoModel();
+    const uuidv4 = require('uuid/v4');
     todo.title = 'Testing todos';
     todo.description = 'Go to the store';
     todo.dateAdded = Date.now();
     todo.deadline = 0;
     todo.isDone = false;
     todo.priority = 0;
-    todo.id = 1;
+    todo.id = uuidv4();
     this.addTodo(todo);
   }
 
@@ -44,7 +47,7 @@ export class TodoService {
     this.todos.forEach(x => {
       if (x.id === todo.id) {
         // Remove item from this.todoslist
-        this.todos.splice(x.id, 1);
+        this.todos.splice(this.todos.indexOf(todo), 1);
         // Rewrite the new list to session storage
         sessionStorage.setItem(this.key, JSON.stringify(this.todos));
       } else {
@@ -54,20 +57,14 @@ export class TodoService {
     });
   }
 
-  toggleCompleted(todo: TodoModel) {
-    this.todos.forEach(x => {
-      if (x === todo) {
-        x.isDone = !x.isDone;
-      }
-    });
-  }
-
-  editTodo(todo: TodoModel, variable: string, edit: any) {
+  editTodo(todo: TodoModel, variable: string, edit?: any) {
     this.getAllTodos();
     this.todos.forEach(x => {
-      if (x === todo) {
+      if (x.id === todo.id) {
         if (variable === 'title') {
           x.title = edit;
+        } else if (variable === 'isDone') {
+          x.isDone = !x.isDone;
         } else if (variable === 'description') {
           x.description = edit;
         } else if (variable === 'deadline') {
