@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { TodoCardComponent } from './todo-card/todo-card.component';
+import { NavbarComponent } from './components/layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
     AboutComponent,
     HomeComponent,
     TodoCardComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

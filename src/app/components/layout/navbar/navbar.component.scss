@@ -1,0 +1,13 @@
+@import './../../../../assets/colors';
+
+.navbar {
+    background: $dualog-blue5;
+    color: $dualog-blue80;
+    text-align: center;
+    padding: 10px;
+}
+
+.navbar a {
+    color: $dualog-blue80;
+    text-decoration: none;
+}
