@@ -1,29 +1,38 @@
 <div class="container">
-    <h1>New todo</h1>
-    <form>
+    <h1 align="center">New todo</h1>
+    <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" required
-        [(ngModel)="todo.title" name="title">
-        
+        <input placeholder="What do you need to do?" type="text" class="form-control" id="title" 
+              required
+              [(ngModel)]="newTodo.title" name="title"
+              #title="ngModel">
+        <div [hidden]="title.valid || title.pristine"
+              class="alert alert-danger">
+          Title is required
+        </div>
       </div>
- 
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description">
+        <textarea placeholder="A description of what to be done" rows="4" cols="50" class="form-control" id="description"
+                  [(ngModel)]="newTodo.description" name="description"></textarea>
       </div>
       <div class="form-group">
-          <label for="priority">Deadline</label>
-          <input type="text" class="form-control" id="priority">
+        <label for="deadline">Deadline</label>
+        <input type="datetime-local" class="form-control" id="deadline"
+               [(ngModel)]="newTodo.deadline" name="deadline">
       </div>
       <div class="form-group">
-        <label for="priorities">Priority</label>
-        <select class="form-control" id="priorities" required>
-        <option *ngFor="let p of prior" [value]="proirity">{{p}}</option>
+        <label for="proirity">Priority</label>
+        <select class="form-control" id="proirity" 
+                required
+                [(ngModel)]="newTodo.priority" name="priority">
+        <option *ngFor="let p of prior" [value]="p.value">{{p.name}} </option>
         </select>
       </div>
- 
-      <button type="submit" class="btn btn-success">Submit</button>
- 
+
+      <button type="submit" class="btn btn-success"
+      [disabled]="!todoForm.form.valid"> Submit</button>
+      <button type="cancel" class="btn btn-danger" routerLink="/">Cancel</button>
     </form>
 </div>

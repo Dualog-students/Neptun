@@ -28,14 +28,7 @@ export class HomeComponent implements OnInit {
     this.updateTodoList();
     this.todoList = this.sortingPipe.transform(this.todoList, this.sorting);
   }
-
-  testAddTodo() {
-    console.log("test");
-    this.todoService.testAddTodo();
-    this.updateTodoList();
-    this.todoList = this.sortingPipe.transform(this.todoList, this.sorting);
-  }
-
+  
   ngOnInit() {
   }
 

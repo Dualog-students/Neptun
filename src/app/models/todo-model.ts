@@ -1,14 +1,15 @@
 export class TodoModel {
     title: string;
-    description: string;
+    description?: string;
     dateAdded: number = Date.now();
-    deadline: number;
+    deadline?: number;
     isDone: boolean;
     priority?: priorityType;
     id: number;
 }
 
 export enum priorityType {
+    None,
     Low,
     Medium,
     High,
