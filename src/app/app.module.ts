@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
+import { AddTodoComponent } from './components/pages/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
     HomeComponent,
     TodoCardComponent,
     NavbarComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
