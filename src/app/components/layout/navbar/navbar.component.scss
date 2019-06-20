@@ -3,11 +3,27 @@
 .navbar {
     background: $dualog-blue5;
     color: $dualog-blue80;
-    text-align: center;
-    padding: 10px;
 }
 
 .navbar a {
     color: $dualog-blue80;
     text-decoration: none;
+}
+
+.left-corner {
+    display: inline-block;
+    align-items: center;
+}
+
+.navbar img {
+    width: 70px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: $primary-color;
+    display: inline-block;
+    vertical-align: middle;
 }
