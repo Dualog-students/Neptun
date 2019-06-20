@@ -1,6 +1,21 @@
-# Neptun
 
-> An introduction to Angular project for the summer students at Dualog
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="logo.png" alt="Logo" width="300">
+  </a>
+
+  <h1 align="center">Neptun</h1>
+
+  <p align="center">
+     An introduction to Angular project for the summer students at Dualog
+    <br />
+  </p>
+</p>
+
+
+>
 
 ## Usage
 ### Development
