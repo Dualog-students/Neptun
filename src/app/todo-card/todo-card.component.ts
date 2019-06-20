@@ -16,17 +16,12 @@ export class TodoCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleComplete(todo: TodoModel) {
-    this.todoService.toggleCompleted(todo);
-    this.updateTodoList.emit();
-  }
-
   deleteTodo(todo: TodoModel) {
     this.todoService.deleteTodo(todo);
     this.updateTodoList.emit();
   }
 
-  editTodo(todo: TodoModel, variable: string, edit: any) {
+  editTodo(todo: TodoModel, variable: string, edit?: any) {
     this.todoService.editTodo(todo, variable, edit);
     this.updateTodoList.emit();
   }
