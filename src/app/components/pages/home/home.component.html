@@ -1,27 +1,25 @@
 <div class="container">
   <div class="btn-group" dropdown>
-      <button class="button" style="width: 100%" id="button-sort" dropdownToggle type="button"
-              aria-controls="dropdown-sort">
-        Sort by ⯆ <span class="caret"></span>
-      </button>
-      <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu"
-          role="menu" aria-labelledby="button-sort">
-        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedNewest'"> Sort by newest</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedOldest'"> Sort by oldest</a></li>
-        <li class="divider dropdown-divider"></li>
-        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityHigh'">Sort high priority</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityLow'">Sort low priority</a></li>
-      </ul>
-    </div>
-    <div class="row">
-      <div *ngFor="let a of todoList | sortingPipes:sorting" class="col-4 pt-3">
-          <div *ngFor="let a of todoList | sortingPipes:sorting">
-              <app-todo-card [todo]="a" [homeComponent]="this"></app-todo-card>
-            </div>
-          </div>
-          </div>
-        </div>
+    <button class="button" style="width: 100%" id="button-sort" dropdownToggle type="button"
+            aria-controls="dropdown-sort">
+      Sort by ⯆ <span class="caret"></span>
+    </button>
+    <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-sort">
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedNewest'"> Sort by newest</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedOldest'"> Sort by oldest</a></li>
+      <li class="divider dropdown-divider"></li>
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityHigh'">Sort high priority</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityLow'">Sort low priority</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div *ngFor="let a of todoList | sortingPipes:sorting" class="col-4 pt-3">
+      <div *ngFor="let a of todoList | sortingPipes:sorting">
+        <app-todo-card [todo]="a" [homeComponent]="this"></app-todo-card>
       </div>
     </div>
+  </div>
+</div>
 
 
