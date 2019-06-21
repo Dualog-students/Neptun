@@ -5,15 +5,16 @@
     margin: 64px auto;
     box-shadow: 0 3px 7px -1px rgba(#000, .1);
     margin-bottom: 1.6%;
-    background: $dualog_white;
+    background: $dualog-blue20;
     line-height: 1.4;
     font-family: sans-serif;
     border-radius: 15px;
     overflow: hidden;
 
     .card-title {
+        color: $dualog_white;
         padding: 24px;
-        background: $dualog_nordic_dark;
+        background: $dualog-denim;
         position: relative;
         z-index: 1;
         line-height: 1;
@@ -72,7 +73,7 @@
 
     .button-complete {
         width: 100%;
-        background-color: green;
+        background-color: $dualog-denim;
         height: 56px;
         color: $dualog_white;
         font-size: 30px;
@@ -82,4 +83,8 @@
     .not-completed {
         background-color: rgb(236, 8, 8);
     }
+}
+
+.button-complete:hover {
+    background: #dc3545;
 }
