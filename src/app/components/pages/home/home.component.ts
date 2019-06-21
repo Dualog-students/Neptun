@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './../../../todo.service';
 import { TodoModel, priorityType} from './../../../models/todo-model';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
 import { SortingPipesPipe } from './../../../../pipes/sorting-pipes.pipe';
 
 @Component({
