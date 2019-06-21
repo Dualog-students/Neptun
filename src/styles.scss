@@ -2,6 +2,9 @@
 @import './assets/fonts/Poppins/Poppins.css';
 @import './assets/fonts/Roboto/Roboto.css';
 @import './assets/button.scss';
+@import './app/components/pages/home/home.component.scss';
+@import './app/components/pages/add-todo/add-todo.component.scss';
+@import './app/components/pages/about/about.component.scss';
 
 body {
 
@@ -12,4 +15,8 @@ h1 h2 h3 h4 h5 h6 {
 
     font-family: 'Poppins';
     color: $primary-color;
+}
+
+card-info{
+    background-color: $dualog-blue10;
 }

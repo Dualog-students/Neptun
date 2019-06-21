@@ -12,21 +12,16 @@
   color:$very-light-blue;  
 }
 
-.button.complete-button {
-  width: 220px;
-  font-size: 20px;
-}
-
 .button:hover {
   color: $secondary-color; 
   border-color: $dark-slate-blue;
 }
 
-.new-todo {
-  position: fixed;
-  right: 32px;
-  bottom: 32px;
-}
+// .new-todo {
+//   position: fixed;
+//   right: 32px;
+//   bottom: 32px;
+// }
 .todo-button {
   position: relative;
   width: 100%;
