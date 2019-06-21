@@ -27,10 +27,10 @@ export class TodoCardComponent implements OnInit {
   }
 
   getColorPriority(todo: TodoModel) {
-    if (todo.priority === 0) {
+    if (todo.priority == priorityType.None || todo.priority == priorityType.Low) {
       return 'green';
-    } else if (todo.priority === 1) {
-      return 'yellowgreen';
+    } else if (todo.priority == priorityType.Medium) {
+      return '#FFDC00';
     } else {
       return 'red';
     }
@@ -44,7 +44,7 @@ export class TodoCardComponent implements OnInit {
     return priorityType[todo.priority];
   }
 
-  getCompleteMessage(todo: TodoModel) {
-    return todo.isDone ? 'yes' : 'no';
+  getIsCompleted(todo: TodoModel) {
+    return todo.isDone ? true : false;
   }
 }

@@ -2,47 +2,84 @@
 
 .todo-card {
     width: 70%;
-    margin: 1rem auto;
+    margin: 64px auto;
     box-shadow: 0 3px 7px -1px rgba(#000, .1);
     margin-bottom: 1.6%;
     background: $dualog_white;
     line-height: 1.4;
     font-family: sans-serif;
-    border-radius: 5px;
+    border-radius: 15px;
     overflow: hidden;
-    z-index: 0;
-}
 
-.card-title {
-    padding: 1rem;
-    background: $dualog_nordic_dark;
-    position: relative;
-    z-index: 1;
-    line-height: 1;
-    margin: 0;
-    font-size: 1.7rem;
-}
+    .card-title {
+        padding: 24px;
+        background: $dualog_nordic_dark;
+        position: relative;
+        z-index: 1;
+        line-height: 1;
+        margin: 0;
+        font-size: 1.7rem;
+    }
 
-.card-description {
-    font-family: sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: $dualog_black;
-    padding-left: 1rem;
-    margin-top: 5px;
-    position: relative;
-}
+    .card-details {
+        display: flex;
+        flex-direction: row;
+        padding-left: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 8px;
+        color: #5a5a5a;
 
-.card-info {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-}
+        .deadline-img, .priority-img {
+            width: 28px;
+            padding-right: 8px;
+        }
 
-.button-complete {
-    background-color: green;
-    height: 50px;
-    color: $dualog_white;
-    font-size: 30px;
-    font-weight: bold;
+        .deadline {
+            padding-right: 16px;
+        }
+    }
+
+    p {
+        padding-left: 24px;
+        font-size: em(13);
+        font-weight: 400;
+        color: #383838;
+    }
+
+        .date-added-container {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            padding-top: 24px;
+
+            .date-added {
+                position: absolute;
+                right: 8px;
+                bottom: 8px;
+                color: #5a5a5a
+            }
+
+            .date-added-img {
+                width: 28px;
+                padding-right: 8px;
+            }
+        }
+    
+    .button {
+        height: 40px;
+    }
+
+    .button-complete {
+        width: 100%;
+        background-color: green;
+        height: 56px;
+        color: $dualog_white;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .not-completed {
+        background-color: rgb(236, 8, 8);
+    }
 }

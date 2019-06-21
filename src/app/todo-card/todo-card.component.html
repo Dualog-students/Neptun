@@ -1,13 +1,31 @@
 <div class="todo-card">
   <h1 class="card-title">{{ todo.title }}</h1>
-  <p class="card-description">{{ todo.description }}</p>
-  <div class="card-info">
-    <p>- Priority: <font color={{getColorPriority(todo)}}>{{getPriority(todo)}}</font></p>
-    <p>- Date added: {{todo.dateAdded | date:'short'}}</p>
-    <p>- Deadline: {{todo.deadline | date:'short'}}</p>
-    <p>- Completed: <font color={{getCompleteColor(todo)}}> {{ getCompleteMessage(todo) }} </font></p>
+
+  <div class="card-details">
+    <div *ngIf="todo.deadline">
+      <div class="deadline">
+        <img class="icon deadline-img" src="../../assets/deadline.png">
+        <span>{{ todo.deadline | date:'short' }}</span>
+      </div>
+    </div>
+    <div class="priority">
+      <img class="priority-img" src="../../assets/priority.png">
+      <span><font color={{getColorPriority(todo)}}>{{getPriority(todo)}}</font></span>
+    </div>
   </div>
+ 
+  <p>{{ todo.description }}</p>
+
+  <div class="date-added-container">
+    <div class="date-added">
+      <img class="date-added-img" src="../../assets/date-added.png"> <span>{{ todo.dateAdded | date:'short'}}</span>
+    </div>
+  </div>
+
   <button class="button" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
   <button class="button" style="width: 50%" (click)="editTodo(todo)">Edit</button>
-  <button class="button-complete" style="width:100%" (click)="editTodo(todo, 'isDone')">Complete</button>
+  <button [ngClass]="[getIsCompleted(todo) ? 'button-complete' : 'button-complete not-completed']" 
+          (click)="editTodo(todo, 'isDone')">
+          {{ getIsCompleted(todo) ? 'Completed' : 'Not Completed' }}
+  </button>
 </div>
