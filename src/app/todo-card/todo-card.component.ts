@@ -35,7 +35,7 @@ export class TodoCardComponent implements OnInit {
     if (todo.priority == priorityType.None || todo.priority == priorityType.Low) {
       return 'green';
     } else if (todo.priority == priorityType.Medium) {
-      return '#FFDC00';
+      return 'orange';
     } else {
       return 'red';
     }

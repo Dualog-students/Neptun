@@ -10,11 +10,11 @@
     </div>
     <div class="priority">
       <img class="priority-img" src="../../assets/priority.png">
-      <span><font color={{getColorPriority(todo)}}>{{getPriority(todo)}}</font></span>
+      <span class="priority {{getColorPriority(todo)}}">{{getPriority(todo)}}</span>
     </div>
   </div>
  
-  <p>{{ todo.description }}</p>
+  <p class="card-details">{{ todo.description }}</p>
 
   <div class="date-added-container">
     <div class="date-added">
