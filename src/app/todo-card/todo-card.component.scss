@@ -1,5 +1,21 @@
 @import '../../assets/colors';
 
+.red{
+    color: $dualog-red;
+}
+
+.orange {
+    color: #e67e22;
+}
+
+.green {
+    color: #27ae60;
+}
+
+.priority {
+    font-family: Roboto-Medium;
+    font-weight: bold;
+}
 .todo-card {
     width: 70%;
     margin: 64px auto;
@@ -7,7 +23,7 @@
     margin-bottom: 1.6%;
     background: $dualog-blue20;
     line-height: 1.4;
-    font-family: sans-serif;
+    font-family: Poppins;
     border-radius: 15px;
     overflow: hidden;
 
@@ -30,6 +46,7 @@
         padding-bottom: 8px;
         padding-right: 8px;
         color: #5a5a5a;
+        font-family: Roboto-Regular;
 
         .deadline-img, .priority-img {
             width: 28px;
