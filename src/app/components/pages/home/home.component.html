@@ -1,9 +1,7 @@
 <div class="container">
   <div class="btn-group" dropdown>
-    <button class="button" style="width: 100%" id="button-sort" dropdownToggle type="button"
-      aria-controls="dropdown-sort">
-      Sort by ⯆ <span class="caret"></span>
-    </button>
+    <a class="button" href="#" dropdownToggle aria-controls="dropdown-sort"><a
+        class="fas fa-sort-amount-up-alt"></a>Sort by ⯆</a>
     <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
       <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedNewest'"> Sort by newest</a>
       </li>
@@ -16,10 +14,8 @@
     </ul>
   </div>
   <div class="btn-group" dropdown>
-    <button class="button" style="width: 100%" id="button-filter" dropdownToggle type="button"
-      aria-controls="dropdown-filter">
-      Filter by ⯆ <span class="carett"></span>
-    </button>
+    <a class="button" href="#" dropdownToggle aria-controls="dropdown-filter"><i
+        class="fas fa-sort-amount-up-alt"></i>Filter by ⯆</a>
     <ul id="dropdown-filter" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
       <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'all'"> No filter</a>
       </li>

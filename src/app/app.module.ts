@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { AddTodoComponent } from './components/pages/add-todo/add-todo.component';
 import { EditComponent } from './components/pages/edit/edit.component';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,14 @@ import { FilterPipe } from '../pipes/filter.pipe';
     NavbarComponent,
     AddTodoComponent,
     EditComponent,
-    FilterPipe
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,31 +1,38 @@
 <div class="todo-card">
   <h1 class="card-title">{{ todo.title }}</h1>
 
-  <div class="card-details">
-    <div *ngIf="todo.deadline">
-      <div class="deadline">
-        <img class="icon deadline-img" src="../../assets/deadline.png">
-        <span>{{ todo.deadline | date:'short' }}</span>
+  <div class="bar-of-stuff">
+    <div class="card-details">
+      <div *ngIf="todo.deadline">
+        <div class="deadline">
+          <i class="fas fa-stopwatch"></i>
+          <span>{{ todo.deadline | date:'short' }}</span>
+        </div>
+      </div>
+      <div class="priority">
+        <i class="fas fa-radiation"></i>
+        <span>
+          <font color={{getColorPriority(todo)}}>{{getPriority(todo)}}</font>
+        </span>
       </div>
     </div>
-    <div class="priority">
-      <img class="priority-img" src="../../assets/priority.png">
-      <span class="priority {{getColorPriority(todo)}}">{{getPriority(todo)}}</span>
+    <div class="test">
+      <a (click)="edit(todo)" class="fa fa-edit cursor-pointer"></a>
+      <a (click)="deleteTodo(todo)" class="far fa-trash-alt cursor-pointer"></a>
     </div>
   </div>
- 
-  <p class="card-details">{{ todo.description }}</p>
+
+  <p>{{ todo.description }}</p>
 
   <div class="date-added-container">
     <div class="date-added">
-      <img class="date-added-img" src="../../assets/date-added.png"> <span>{{ todo.dateAdded | date:'short'}}</span>
+      <i class="far fa-calendar-alt"></i>
+      <span>{{ todo.dateAdded | date:'short'}}</span>
     </div>
   </div>
 
-  <button class="button button-delete" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
-  <button class="button button-edit" style="width: 50%" (click)="edit(todo)">Edit</button>
-  <button [ngClass]="[getIsCompleted(todo) ? 'button-complete' : 'button-complete not-completed']" 
-          (click)="toggleComplete(todo)">
-          {{ getIsCompleted(todo) ? 'Completed' : 'Not Completed' }}
+  <button [ngClass]="[getIsCompleted(todo) ? 'button-complete' : 'button-complete not-completed']"
+    (click)="toggleComplete(todo)">
+    {{ getIsCompleted(todo) ? 'Completed' : 'Not Completed' }}
   </button>
 </div>
