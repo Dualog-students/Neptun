@@ -83,30 +83,30 @@
     .not-completed {
         background-color: rgb(236, 8, 8);
     }
-}
-
-.button-complete:hover {
-    border-color: $dark-slate-blue;
-    background: $dualog-aqua;
-}
-
-.button-edit{
-    color: $dualog_white;  
+    
+    .button-complete:hover {
+        border-color: $dark-slate-blue;
+        background: $dualog-aqua;
+    }
+    
+    .button-edit{
+        color: $dualog_white;  
     border-color: $dualog-nordic-light;
-}
+    }   
 
-.button-edit:hover{
-    border-color: $dark-slate-blue;
-    color: $dualog_white;  
-    background: $dualog-aqua;
-}
+    .button-edit:hover{
+        border-color: $dark-slate-blue;
+        color: $dualog_white;  
+        background: $dualog-aqua;
+    }
 
-.button-delete{
-    border-color: $dualog-nordic-light;
-}
+    .button-delete{
+        border-color: $dualog-nordic-light;
+    }
 
-.button-delete:hover {
-    border-color: $dark-slate-blue;
-    color: $dualog_white;
-    background: #dc3545;
+    .button-delete:hover {
+        border-color: $dark-slate-blue;
+        color: $dualog_white;
+        background: #dc3545;
+    }
 }
