@@ -15,8 +15,22 @@
       <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityLow'">Sort low priority</a></li>
     </ul>
   </div>
+  <div class="btn-group" dropdown>
+    <button class="button" style="width: 100%" id="button-filter" dropdownToggle type="button"
+      aria-controls="dropdown-filter">
+      Filter by ⯆ <span class="carett"></span>
+    </button>
+    <ul id="dropdown-filter" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'all'"> No filter</a>
+      </li>
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'completed'"> Completed</a>
+      </li>
+      <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'notCompleted'">Not completed</a>
+      </li>
+    </ul>
+  </div>
   <div class="todo-cards">
-    <div *ngFor="let a of todoList | sortingPipes:sorting">
+    <div *ngFor="let a of todoList | filter:filter | sortingPipes:sorting">
       <app-todo-card [todo]="a" (updateTodoList)="updateTodoList()"></app-todo-card>
     </div>
   </div>
