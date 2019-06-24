@@ -10,26 +10,34 @@ import { Router } from '@angular/router';
 })
 export class AddTodoComponent implements OnInit {
   prior = [
-    { name: 'None',
-      value: 0 },
-    { name:'Low',
-      value: 1 },
-    { name:'Medium',
-      value: 2 },
-    { name: 'High',
-      value: 3 },
+    {
+      name: 'None',
+      value: 0
+    },
+    {
+      name: 'Low',
+      value: 1
+    },
+    {
+      name: 'Medium',
+      value: 2
+    },
+    {
+      name: 'High',
+      value: 3
+    },
   ];
-  
+
   newTodo = new TodoModel();
   submittet = false;
 
-  constructor(private todoService: TodoService, private router: Router) {}
-  ngOnInit() {}
+  constructor(private todoService: TodoService, private router: Router) { }
+  ngOnInit() { }
 
   onSubmit() {
     this.submittet = true;
     this.todoService.addTodo(this.newTodo);
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl('');
   }
 }
 

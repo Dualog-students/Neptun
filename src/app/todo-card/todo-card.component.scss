@@ -26,7 +26,7 @@
     font-family: Poppins;
     border-radius: 15px;
     overflow: hidden;
-
+    
     .card-title {
         color: $dualog_white;
         padding: 24px;
@@ -37,25 +37,33 @@
         margin: 0;
         font-size: 1.7rem;
     }
-
-    .card-details {
+    
+    .bar-of-stuff {
         display: flex;
-        flex-direction: row;
-        padding-left: 24px;
+        justify-content: space-between;
         padding-top: 8px;
         padding-bottom: 8px;
+        padding-left: 24px;
         padding-right: 8px;
-        color: #5a5a5a;
-        font-family: Roboto-Regular;
-
-        .deadline-img, .priority-img {
-            width: 28px;
-            padding-right: 8px;
+        
+        .card-details {
+            display: flex;
+            flex-direction: row;
+            color: #5a5a5a;
+                       
+            .deadline {
+                padding-right: 16px;
+            }
         }
 
-        .deadline {
-            padding-right: 16px;
+        .cursor-pointer {
+            cursor: pointer;
         }
+    }
+    
+    .fas, .fa, .far {
+        font-size: 24px;
+        margin-right: 8px;
     }
 
     p {
@@ -65,24 +73,24 @@
         color: #383838;
     }
 
-        .date-added-container {
-            display: flex;
-            flex-direction: row;
-            position: relative;
-            padding-top: 24px;
+    .date-added-container {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        padding-top: 24px;
 
-            .date-added {
-                position: absolute;
-                right: 8px;
-                bottom: 8px;
-                color: #5a5a5a
-            }
-
-            .date-added-img {
-                width: 28px;
-                padding-right: 8px;
-            }
+        .date-added {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            color: #5a5a5a
         }
+
+        .date-added-img {
+            width: 28px;
+            padding-right: 8px;
+        }
+    }
     
     .button {
         height: 40px;
