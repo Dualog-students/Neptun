@@ -4,7 +4,6 @@ import { TodoService } from './../../../todo.service';
 import { TodoModel, priorityType } from 'src/app/models/todo-model';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -23,7 +22,6 @@ export class EditComponent implements OnInit {
   ];
   editTodo: TodoModel;
   editId : number;
-  newTodo = new TodoModel();
   submittet = false;
 
   constructor( private route: ActivatedRoute, private todoService: TodoService, private router: Router ) { 
@@ -36,10 +34,10 @@ export class EditComponent implements OnInit {
     this.editId = <number><unknown> this.route.snapshot.queryParamMap.get('id');
     this.editTodo = this.todoService.getTodo(this.editId);
   }
+
   onSubmit() {
     this.submittet = true;
     this.todoService.updateTodo(this.editTodo);
     this.router.navigateByUrl('');
   }
-
 }

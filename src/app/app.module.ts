@@ -11,6 +11,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { AddTodoComponent } from './components/pages/add-todo/add-todo.component';
+import { EditComponent } from './components/pages/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddTodoComponent } from './components/pages/add-todo/add-todo.component
     HomeComponent,
     TodoCardComponent,
     NavbarComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

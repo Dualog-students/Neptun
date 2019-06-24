@@ -8,6 +8,6 @@
     <p>- Completed: <font color={{getCompleteColor(todo)}}> {{ getCompleteMessage(todo) }} </font></p>
   </div>
   <button class="button" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
-  <button class="button" style="width: 50%" (click)="editTodo(todo)">Edit</button>
-  <button class="button-complete" style="width:100%" (click)="editTodo(todo, 'isDone')">Complete</button>
+  <button class="button" style="width: 50%" (click)="edit(todo)">Edit</button>
+  <button class="button-complete" style="width:100%" (click)="toggleComplete(todo)">Complete</button>
 </div>
