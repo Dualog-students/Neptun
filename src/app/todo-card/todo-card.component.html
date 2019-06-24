@@ -22,8 +22,8 @@
     </div>
   </div>
 
-  <button class="button" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
-  <button class="button" style="width: 50%" (click)="edit(todo)">Edit</button>
+  <button class="button button-delete" style="width: 50%" (click)="deleteTodo(todo)">Delete</button>
+  <button class="button button-edit" style="width: 50%" (click)="edit(todo)">Edit</button>
   <button [ngClass]="[getIsCompleted(todo) ? 'button-complete' : 'button-complete not-completed']" 
           (click)="toggleComplete(todo)">
           {{ getIsCompleted(todo) ? 'Completed' : 'Not Completed' }}
