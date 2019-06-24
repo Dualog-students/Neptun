@@ -11,27 +11,35 @@ import { Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
   prior = [
-    { name: 'None',
-      value: 0 },
-    { name:'Low',
-      value: 1 },
-    { name:'Medium',
-      value: 2 },
-    { name: 'High',
-      value: 3 },
+    {
+      name: 'None',
+      value: 0
+    },
+    {
+      name: 'Low',
+      value: 1
+    },
+    {
+      name: 'Medium',
+      value: 2
+    },
+    {
+      name: 'High',
+      value: 3
+    },
   ];
   editTodo: TodoModel;
-  editId : number;
+  editId: number;
   submittet = false;
 
-  constructor( private route: ActivatedRoute, private todoService: TodoService, private router: Router ) { 
-    if (this.editTodo === null){
-      console.log("Woops, error!")
+  constructor(private route: ActivatedRoute, private todoService: TodoService, private router: Router) {
+    if (this.editTodo === null) {
+      console.log('Woops, error!');
     }
   }
 
   ngOnInit() {
-    this.editId = <number><unknown> this.route.snapshot.queryParamMap.get('id');
+    this.editId = <number><unknown>this.route.snapshot.queryParamMap.get('id');
     this.editTodo = this.todoService.getTodo(this.editId);
   }
 

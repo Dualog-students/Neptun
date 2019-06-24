@@ -8,7 +8,7 @@ import { todoSamples } from '../assets/todo-samples'
 export class TodoService {
   todos: TodoModel[] = todoSamples;
   key = 'TodoList';
-  test;
+
   constructor() { }
 
   addTodo(todo: TodoModel) {
@@ -18,7 +18,7 @@ export class TodoService {
     this.todos.push(todo);
     sessionStorage.setItem(this.key, JSON.stringify(this.todos));
   }
-  
+
   getAllTodos() {
     const list = JSON.parse(sessionStorage.getItem(this.key));
     if (list === null) {
@@ -28,15 +28,16 @@ export class TodoService {
     }
     return this.todos;
   }
-  getTodo(id : number) : TodoModel {
-    this.test = new TodoModel;
+
+  getTodo(id: number): TodoModel {
+    let todo = new TodoModel;
     this.getAllTodos();
-    this.todos.forEach( x => {
+    this.todos.forEach(x => {
       if (x.id === id) {
-        this.test = x;
-      }     
+        todo = x;
+      }
     });
-    return this.test;
+    return todo;
   }
 
   deleteTodo(todo: TodoModel) {
@@ -54,40 +55,15 @@ export class TodoService {
     });
   }
 
-  editTodo(todo: TodoModel, variable: string, edit?: any) {
+  toggleComplete(todo: TodoModel) {
+    todo.isDone = !todo.isDone;
+    this.updateTodo(todo);
+  }
+
+  updateTodo(todo: TodoModel) {
     this.getAllTodos();
     this.todos.forEach(x => {
       if (x.id === todo.id) {
-        if (variable === 'title') {
-          x.title = edit;
-        } else if (variable === 'isDone') {
-          x.isDone = !x.isDone;
-        } else if (variable === 'description') {
-          x.description = edit;
-        } else if (variable === 'deadline') {
-          x.deadline = edit;
-        } else if (variable === 'priority') {
-          x.priority = edit;
-        }
-      }
-      sessionStorage.setItem(this.key, JSON.stringify(this.todos));
-    });
-  } 
-
-  toggleComplete(todo: TodoModel) {
-    this.getAllTodos();
-    this.todos.forEach(x => {
-      if(x.id === todo.id){
-        x.isDone = !x.isDone;
-        sessionStorage.setItem(this.key, JSON.stringify(this.todos));
-      }
-    });
-  }
-
-  updateTodo(todo: TodoModel){
-    this.getAllTodos();
-    this.todos.forEach( x => {
-      if(x.id === todo.id){
         x.id = todo.id;
         x.title = todo.title;
         x.description = todo.description;
