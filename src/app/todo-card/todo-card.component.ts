@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodoModel, priorityType } from '../models/todo-model';
 import { TodoService } from '../todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-card',
@@ -11,7 +12,7 @@ export class TodoCardComponent implements OnInit {
   @Input() todo: TodoModel;
   @Output() updateTodoList = new EventEmitter();
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,8 +22,12 @@ export class TodoCardComponent implements OnInit {
     this.updateTodoList.emit();
   }
 
-  editTodo(todo: TodoModel, variable: string, edit?: any) {
-    this.todoService.editTodo(todo, variable, edit);
+  edit(todo: TodoModel){    
+    this.router.navigate(["/edit"], {queryParams: {id: todo.id.toString()}});
+  }
+
+  toggleComplete(todo: TodoModel) {
+    this.todoService.toggleComplete(todo);
     this.updateTodoList.emit();
   }
 

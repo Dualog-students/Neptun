@@ -18,7 +18,7 @@ export class TodoService {
     this.todos.push(todo);
     sessionStorage.setItem(this.key, JSON.stringify(this.todos));
   }
-  
+
   getAllTodos() {
     const list = JSON.parse(sessionStorage.getItem(this.key));
     if (list === null) {
@@ -27,6 +27,17 @@ export class TodoService {
       this.todos = list;
     }
     return this.todos;
+  }
+
+  getTodo(id: number): TodoModel {
+    let todo = new TodoModel;
+    this.getAllTodos();
+    this.todos.forEach(x => {
+      if (x.id === id) {
+        todo = x;
+      }
+    });
+    return todo;
   }
 
   deleteTodo(todo: TodoModel) {
@@ -44,24 +55,23 @@ export class TodoService {
     });
   }
 
-  editTodo(todo: TodoModel, variable: string, edit?: any) {
+  toggleComplete(todo: TodoModel) {
+    todo.isDone = !todo.isDone;
+    this.updateTodo(todo);
+  }
+
+  updateTodo(todo: TodoModel) {
     this.getAllTodos();
     this.todos.forEach(x => {
       if (x.id === todo.id) {
-        if (variable === 'title') {
-          x.title = edit;
-        } else if (variable === 'isDone') {
-          x.isDone = !x.isDone;
-        } else if (variable === 'description') {
-          x.description = edit;
-        } else if (variable === 'deadline') {
-          x.deadline = edit;
-        } else if (variable === 'priority') {
-          x.priority = edit;
-        }
+        x.id = todo.id;
+        x.title = todo.title;
+        x.description = todo.description;
+        x.priority = todo.priority;
+        x.deadline = todo.deadline;
+        x.isDone = todo.isDone;
+        sessionStorage.setItem(this.key, JSON.stringify(this.todos));
       }
-
-      sessionStorage.setItem(this.key, JSON.stringify(this.todos));
     });
   }
 }
