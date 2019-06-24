@@ -12,6 +12,7 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
 import { NavbarComponent } from './components/layout/navbar/navbar.component';
 import { AddTodoComponent } from './components/pages/add-todo/add-todo.component';
 import { EditComponent } from './components/pages/edit/edit.component';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditComponent } from './components/pages/edit/edit.component';
     TodoCardComponent,
     NavbarComponent,
     AddTodoComponent,
-    EditComponent
+    EditComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
