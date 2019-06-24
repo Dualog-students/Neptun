@@ -8,7 +8,7 @@ import { todoSamples } from '../assets/todo-samples'
 export class TodoService {
   todos: TodoModel[] = todoSamples;
   key = 'TodoList';
-
+  test;
   constructor() { }
 
   addTodo(todo: TodoModel) {
@@ -27,6 +27,16 @@ export class TodoService {
       this.todos = list;
     }
     return this.todos;
+  }
+  getTodo(id : number) : TodoModel {
+    this.test = new TodoModel;
+    this.getAllTodos();
+    this.todos.forEach( x => {
+      if (x.id === id) {
+        this.test = x;
+      }     
+    });
+    return this.test;
   }
 
   deleteTodo(todo: TodoModel) {
@@ -60,8 +70,32 @@ export class TodoService {
           x.priority = edit;
         }
       }
-
       sessionStorage.setItem(this.key, JSON.stringify(this.todos));
+    });
+  } 
+
+  toggleComplete(todo: TodoModel) {
+    this.getAllTodos();
+    this.todos.forEach(x => {
+      if(x.id === todo.id){
+        x.isDone = !x.isDone;
+        sessionStorage.setItem(this.key, JSON.stringify(this.todos));
+      }
+    });
+  }
+
+  updateTodo(todo: TodoModel){
+    this.getAllTodos();
+    this.todos.forEach( x => {
+      if(x.id === todo.id){
+        x.id = todo.id;
+        x.title = todo.title;
+        x.description = todo.description;
+        x.priority = todo.priority;
+        x.deadline = todo.deadline;
+        x.isDone = todo.isDone;
+        sessionStorage.setItem(this.key, JSON.stringify(this.todos));
+      }
     });
   }
 }
