@@ -7,13 +7,12 @@ import {TodoService} from './../../../todo.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  
+  todoLength = 0;
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
-  }
-
-  get_todo_count() {
-    return this.todoService.get_Todos_Length();
+    this.todoLength = this.todoService.getAllTodos().length;
   }
 }
