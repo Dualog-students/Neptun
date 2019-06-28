@@ -15,7 +15,6 @@ export class TodoService {
     this.getAllTodos();
     const uuidv4 = require('uuid/v4');
     todo.id = uuidv4();
-    todo.isDone = false;
     this.todos.push(todo);
     sessionStorage.setItem(this.key, JSON.stringify(this.todos));
   }
@@ -74,5 +73,9 @@ export class TodoService {
         sessionStorage.setItem(this.key, JSON.stringify(this.todos));
       }
     });
+  }
+
+  get_Todos_Length() : number{
+    return this.todos.length;
   }
 }
