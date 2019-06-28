@@ -69,8 +69,4 @@ export class TodoService {
       }
     });
   }
-
-  get_Todos_Length(): number {
-    return this.todos.length;
-  }
 }
