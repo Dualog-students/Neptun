@@ -1,35 +1,93 @@
 <div class="container">
-  <div class="btn-group" dropdown>
-    <a class="button" href="#" dropdownToggle aria-controls="dropdown-sort"><a
-        class="fas fa-sort-amount-up-alt"></a>Sort by ⯆</a>
-    <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedNewest'"> Sort by newest</a>
-      </li>
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'dateAddedOldest'"> Sort by oldest</a>
-      </li>
-      <li class="divider dropdown-divider"></li>
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityHigh'">Sort high priority</a>
-      </li>
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="sorting = 'priorityLow'">Sort low priority</a></li>
-    </ul>
-  </div>
-  <div class="btn-group" dropdown>
-    <a class="button" href="#" dropdownToggle aria-controls="dropdown-filter"><i
-        class="fas fa-sort-amount-up-alt"></i>Filter by ⯆</a>
-    <ul id="dropdown-filter" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'all'"> No filter</a>
-      </li>
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'completed'"> Completed</a>
-      </li>
-      <li role="menuitem"><a class="dropdown-item" href="#" (click)="filter = 'notCompleted'">Not completed</a>
-      </li>
-    </ul>
-  </div>
-  <div class="todo-cards">
-    <div *ngFor="let a of todoList | filter:filter | sortingPipes:sorting">
-      <app-todo-card [todo]="a" (updateTodoList)="updateTodoList()"></app-todo-card>
+
+  <div class="column1">
+    <div class="btn-group" dropdown>
+      <a class="button" href="#" dropdownToggle aria-controls="dropdown-sort"><a
+          class="fas fa-sort-amount-up-alt"></a>Sort by ⯆</a>
+      <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingNotCompleted = 'dateAddedNewest'"> Sort
+            by
+            newest</a>
+        </li>
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingNotCompleted = 'dateAddedOldest'"> Sort
+            by
+            oldest</a>
+        </li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingNotCompleted = 'priorityHigh'">Sort high
+            priority</a>
+        </li>
+        <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingNotCompleted = 'priorityLow'">Sort low
+            priority</a>
+        </li>
+      </ul>
+    </div>
+    <h2 class="title">Not completed</h2>
+    <div class="todo-cards">
+      <div *ngFor="let a of todoList | filter:'all' | sortingPipes:sortingNotCompleted">
+        <app-todo-card [todo]="a" (updateTodoList)="updateTodoList()"></app-todo-card>
+      </div>
     </div>
   </div>
+
+  <div class="column2">
+    <div class="todo-cards">
+      <div class="btn-group" dropdown>
+        <a class="button" href="#" dropdownToggle aria-controls="dropdown-sort"><a
+            class="fas fa-sort-amount-up-alt"></a>Sort by ⯆</a>
+        <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingInProgress = 'dateAddedNewest'"> Sort
+              by
+              newest</a>
+          </li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingInProgress = 'dateAddedOldest'"> Sort
+              by
+              oldest</a>
+          </li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingInProgress = 'priorityHigh'">Sort high
+              priority</a>
+          </li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingInProgress = 'priorityLow'">Sort low
+              priority</a></li>
+        </ul>
+      </div>
+      <h2 class="title">In progress</h2>
+      <div *ngFor="let a of todoList | filter:'notCompleted' | sortingPipes:sortingInProgress">
+        <app-todo-card [todo]="a" (updateTodoList)="updateTodoList()"></app-todo-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="column3">
+    <div class="todo-cards">
+      <div class="btn-group" dropdown>
+        <a class="button" href="#" dropdownToggle aria-controls="dropdown-sort"><a
+            class="fas fa-sort-amount-up-alt"></a>Sort by ⯆</a>
+        <ul id="dropdown-sort" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-sort">
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingCompleted = 'dateAddedNewest'"> Sort
+              by
+              newest</a>
+          </li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingCompleted = 'dateAddedOldest'"> Sort
+              by
+              oldest</a>
+          </li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingCompleted = 'priorityHigh'">Sort high
+              priority</a>
+          </li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="sortingCompleted = 'priorityLow'">Sort low
+              priority</a></li>
+        </ul>
+      </div>
+      <h2 class="title">Completed</h2>
+      <div *ngFor="let a of todoList | filter:'completed' | sortingPipes:sortingCompleted">
+        <app-todo-card [todo]="a" (updateTodoList)="updateTodoList()"></app-todo-card>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="new-todo">

@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
 
   todoList: TodoModel[] = [];
   sortingPipe = new SortingPipesPipe();
-  sorting = 'dateAddedNewest';
+  sortingCompleted = 'dateAddedNewest';
+  sortingNotCompleted = 'dateAddedNewest';
+  sortingInProgress = 'dateAddedNewest';
   filter = 'all';
 
   constructor(private todoService: TodoService) {
@@ -27,7 +29,6 @@ export class HomeComponent implements OnInit {
   addTodo(todo: TodoModel) {
     this.todoService.addTodo(todo);
     this.updateTodoList();
-    this.todoList = this.sortingPipe.transform(this.todoList, this.sorting);
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TodoModel, priorityType } from '../models/todo-model';
+import { TodoModel, priorityType, todoStatus } from '../models/todo-model';
 import { TodoService } from '../todo.service';
 import { Router } from '@angular/router';
 
@@ -22,13 +22,8 @@ export class TodoCardComponent implements OnInit {
     this.updateTodoList.emit();
   }
 
-  edit(todo: TodoModel){    
-    this.router.navigate(["/edit"], {queryParams: {id: todo.id.toString()}});
-  }
-
-  toggleComplete(todo: TodoModel) {
-    this.todoService.toggleComplete(todo);
-    this.updateTodoList.emit();
+  edit(todo: TodoModel) {
+    this.router.navigate(['/edit'], { queryParams: { id: todo.id.toString() } });
   }
 
   getColorPriority(todo: TodoModel) {

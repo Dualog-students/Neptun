@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { TodoModel } from './models/todo-model'
-import { todoSamples } from '../assets/todo-samples'
+import { TodoModel, todoStatus } from './models/todo-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  todos: TodoModel[] = todoSamples;
+  todos: TodoModel[];
   key = 'TodoList';
 
   constructor() { }
@@ -15,7 +14,7 @@ export class TodoService {
     this.getAllTodos();
     const uuidv4 = require('uuid/v4');
     todo.id = uuidv4();
-    todo.isDone = false;
+    todo.isDone = todoStatus.notCompleted;
     this.todos.push(todo);
     sessionStorage.setItem(this.key, JSON.stringify(this.todos));
   }
@@ -56,11 +55,6 @@ export class TodoService {
     });
   }
 
-  toggleComplete(todo: TodoModel) {
-    todo.isDone = !todo.isDone;
-    this.updateTodo(todo);
-  }
-
   updateTodo(todo: TodoModel) {
     this.getAllTodos();
     this.todos.forEach(x => {
@@ -76,7 +70,7 @@ export class TodoService {
     });
   }
 
-  get_Todos_Length() : number{
+  get_Todos_Length(): number {
     return this.todos.length;
   }
 }
