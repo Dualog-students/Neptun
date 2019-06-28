@@ -3,7 +3,7 @@ export class TodoModel {
     description?: string;
     dateAdded: number = Date.now();
     deadline?: number;
-    isDone: boolean;
+    isDone: todoStatus;
     priority?: priorityType;
     id: number;
 }
@@ -13,4 +13,10 @@ export enum priorityType {
     Low,
     Medium,
     High,
+}
+
+export enum todoStatus {
+    completed,
+    inProgress,
+    notCompleted,
 }

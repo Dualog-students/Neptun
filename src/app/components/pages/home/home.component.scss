@@ -1,0 +1,27 @@
+@import './../../../../assets/colors';
+
+.container {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    
+    .column1, .column2 {
+        border-right: 2px solid $dualog-blue80;
+    }
+
+    .title {
+        text-align: center;
+        margin-top: 16px;
+        font-family: 'Poppins';
+        color: $primary-color;
+        font-weight: bold;
+    }
+
+    .btn-group {
+        margin-left: 2px;
+    }
+}

@@ -30,9 +30,4 @@
       <span>{{ todo.dateAdded | date:'short'}}</span>
     </div>
   </div>
-
-  <button [ngClass]="[getIsCompleted(todo) ? 'button-complete' : 'button-complete not-completed']"
-    (click)="toggleComplete(todo)">
-    {{ getIsCompleted(todo) ? 'Completed' : 'Not Completed' }}
-  </button>
 </div>

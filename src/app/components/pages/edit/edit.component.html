@@ -1,38 +1,31 @@
-<div class="container">
+<div class="edit-container">
   <h1 align="center">Edit todo</h1>
   <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
     <div class="form-group">
       <label for="title">Title</label>
-      <input placeholder="What do you need to do?" type="text" class="form-control" id="title" 
-            required
-            [(ngModel)]="editTodo.title" name="title"
-            #title="ngModel">
-      <div [hidden]="title.valid || title.pristine"
-            class="alert alert-danger">
+      <input placeholder="What do you need to do?" type="text" class="form-control" id="title" required
+        [(ngModel)]="editTodo.title" name="title" #title="ngModel">
+      <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
         Title is required
       </div>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
       <textarea placeholder="A description of what to be done" rows="4" cols="50" class="form-control" id="description"
-                [(ngModel)]="editTodo.description" name="description"></textarea>
+        [(ngModel)]="editTodo.description" name="description"></textarea>
     </div>
     <div class="form-group">
       <label for="deadline">Deadline</label>
-      <input type="datetime-local" class="form-control" id="deadline"
-             [(ngModel)]="editTodo.deadline" name="deadline">
+      <input type="datetime-local" class="form-control" id="deadline" [(ngModel)]="editTodo.deadline" name="deadline">
     </div>
     <div class="form-group">
       <label for="proirity">Priority</label>
-      <select class="form-control" id="proirity" 
-              required
-              [(ngModel)]="editTodo.priority" name="priority">
-      <option *ngFor="let p of prior" [value]="p.value">{{p.name}} </option>
+      <select class="form-control" id="proirity" required [(ngModel)]="editTodo.priority" name="priority">
+        <option *ngFor="let p of prior" [value]="p.value">{{p.name}} </option>
       </select>
     </div>
 
-    <button type="submit" class="btn btn-success"
-    [disabled]="!todoForm.form.valid"> Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid"> Submit</button>
     <button type="cancel" class="btn btn-danger" routerLink="/">Cancel</button>
   </form>
 </div>
